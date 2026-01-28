@@ -9,10 +9,11 @@ string(REPLACE "__attribute__((visibility(\"default\")))" "__attribute__((visibi
 file(WRITE ${C_HEADER_FILE} "${MODIFIED_C_HEADER_CONTENTS}")
 
 # Set MSVC runtime library based on build configuration
-set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-set(ONNX_USE_MSVC_STATIC_RUNTIME ON)
-set(protobuf_MSVC_STATIC_RUNTIME ON)
-set(ABSL_MSVC_STATIC_RUNTIME ON)
+# set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+set(ONNX_USE_MSVC_STATIC_RUNTIME OFF)
+set(protobuf_MSVC_STATIC_RUNTIME OFF)
+set(ABSL_MSVC_STATIC_RUNTIME OFF)
 
 set(CMAKE_OSX_DEPLOYMENT_TARGET 13.4)
 
